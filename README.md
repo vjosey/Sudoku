@@ -1,3 +1,3 @@
 # Sudoku
-![alt text] (screenshoot/sudoku.PNG)
+<image src="screenshoot/sudoku.PNG">
 
