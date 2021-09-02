@@ -1,13 +1,12 @@
 package com.sudokudesktop;
 
+import com.sudokudesktop.computationLogic.SudokuBuilderLogic;
 import com.sudokudesktop.userinterface.IUserInterfaceContract;
 import com.sudokudesktop.userinterface.UserInterfaceImpl;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.applet.Applet;
+
 import java.io.IOException;
 
 public class SudokuApplication extends Application {

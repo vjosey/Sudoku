@@ -16,6 +16,34 @@ public class GameGenerator {
     }
 
     private static int[][] unsolveGame(int[][] solvedGame) {
+        Random random = new Random(System.currentTimeMillis());
+
+        boolean solvable = false;
+        int[][] solvableArray = new int[GRID_BOUNDARY][GRID_BOUNDARY];
+
+        while( solvable == false){
+            SudokuUtilities.copySudokuArrayValues(solvedGame,solvableArray);
+
+            int index = 0;
+
+            while( index < 40){
+                int xCoordinates = random.nextInt(GRID_BOUNDARY);
+                int yCoordinates = random.nextInt(GRID_BOUNDARY);
+
+                if(solvableArray[xCoordinates][yCoordinates] !=0 ){
+                    solvableArray[xCoordinates][yCoordinates] = 0;
+                    index++;
+                }
+            }
+
+            int[][] toBeSolved = new int[GRID_BOUNDARY][GRID_BOUNDARY];
+            SudokuUtilities.copySudokuArrayValues(solvableArray,toBeSolved);
+
+            solvable = SudokuSolver.puzzleIsSolvable(toBeSolved);
+
+
+        }
+        return solvableArray;
     }
 
     private static int[][] getSolvedGame() {
@@ -58,6 +86,7 @@ public class GameGenerator {
 
                      if(GameLogic.sudokuIsInvalid(newGrid)){
                          newGrid[xCoordinate][yCoordinate] =0;
+                         interrupt++;
                      }else{
                          allocTracker.add(new Coordinates(xCoordinate,yCoordinate));
                          allocations++;

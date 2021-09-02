@@ -1,5 +1,6 @@
 package com.sudokudesktop.userinterface.logic;
 
+import com.sudokudesktop.computationLogic.GameLogic;
 import com.sudokudesktop.constants.GameState;
 import com.sudokudesktop.constants.Messages;
 import com.sudokudesktop.problemdomain.IStorage;
